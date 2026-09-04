@@ -184,8 +184,14 @@
         "creatable": false,
         "multiple": true,
         "options": [
-          { "label": "User mailboxes", "value": "User" },
-          { "label": "Shared mailboxes", "value": "Shared" }
+          {
+            "label": "User mailboxes",
+            "value": "User"
+          },
+          {
+            "label": "Shared mailboxes",
+            "value": "Shared"
+          }
         ]
       }
     ],
@@ -287,11 +293,26 @@
         "creatable": false,
         "multiple": true,
         "options": [
-          { "label": "All Severities", "value": "All" },
-          { "label": "High", "value": "high" },
-          { "label": "Medium", "value": "medium" },
-          { "label": "Low", "value": "low" },
-          { "label": "Informational", "value": "informational" }
+          {
+            "label": "All Severities",
+            "value": "All"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Informational",
+            "value": "informational"
+          }
         ]
       }
     ]
@@ -310,11 +331,26 @@
         "creatable": false,
         "multiple": true,
         "options": [
-          { "label": "All Severities", "value": "All" },
-          { "label": "High", "value": "high" },
-          { "label": "Medium", "value": "medium" },
-          { "label": "Low", "value": "low" },
-          { "label": "Informational", "value": "informational" }
+          {
+            "label": "All Severities",
+            "value": "All"
+          },
+          {
+            "label": "High",
+            "value": "high"
+          },
+          {
+            "label": "Medium",
+            "value": "medium"
+          },
+          {
+            "label": "Low",
+            "value": "low"
+          },
+          {
+            "label": "Informational",
+            "value": "informational"
+          }
         ]
       }
     ]
@@ -717,5 +753,91 @@
     "inputLabel": "Ignore sanctioned tools?",
     "inputName": "IgnoreSanctionedTools",
     "description": "Monitors the Shadow AI detection data (Intune detected apps and Entra consented applications) and alerts when an AI tool is seen in the tenant for the first time. The first run establishes a baseline without alerting. Uses the same cached data as the Shadow AI dashboard, so keep the Detected Apps and Service Principals caches syncing. Optionally ignores tools that have been marked as company sanctioned."
+  },
+  {
+    "name": "ServiceHealth",
+    "label": "Alert on Microsoft 365 service health incidents and advisories",
+    "recommendedRunInterval": "30m",
+    "requiresInput": true,
+    "multipleInput": true,
+    "inputs": [
+      {
+        "inputType": "autoComplete",
+        "inputLabel": "Issue types to include",
+        "inputName": "ServiceHealthClassification",
+        "creatable": false,
+        "multiple": true,
+        "options": [
+          {
+            "label": "All",
+            "value": "All"
+          },
+          {
+            "label": "Incidents",
+            "value": "incident"
+          },
+          {
+            "label": "Advisories",
+            "value": "advisory"
+          }
+        ]
+      },
+      {
+        "inputType": "autoComplete",
+        "inputLabel": "Statuses to alert on (default: all active statuses plus Service restored)",
+        "inputName": "ServiceHealthStatuses",
+        "creatable": false,
+        "multiple": true,
+        "options": [
+          {
+            "label": "All active statuses + Service restored",
+            "value": "All"
+          },
+          {
+            "label": "Investigating",
+            "value": "investigating"
+          },
+          {
+            "label": "Service degradation",
+            "value": "serviceDegradation"
+          },
+          {
+            "label": "Service interruption",
+            "value": "serviceInterruption"
+          },
+          {
+            "label": "Restoring service",
+            "value": "restoringService"
+          },
+          {
+            "label": "Extended recovery",
+            "value": "extendedRecovery"
+          },
+          {
+            "label": "Investigation suspended",
+            "value": "investigationSuspended"
+          },
+          {
+            "label": "Service restored",
+            "value": "serviceRestored"
+          },
+          {
+            "label": "Post-incident report published",
+            "value": "postIncidentReviewPublished"
+          }
+        ]
+      },
+      {
+        "inputType": "textField",
+        "inputLabel": "Only these services (comma separated, partial match, blank = all services)",
+        "inputName": "ServiceHealthServices"
+      },
+      {
+        "inputType": "switch",
+        "inputLabel": "One alert per issue across all tenants (recommended for All Tenants; off = one alert per tenant)",
+        "inputName": "ServiceHealthOnePerIssue"
+      }
+    ],
+    "description": "Monitors Microsoft 365 Service Health and alerts on unresolved incidents and advisories (for example Exchange Online degradation or a Teams service interruption). Filter by issue type, status and service. Microsoft-wide incidents are published to every tenant, so enable 'one alert per issue' when scheduling for All Tenants to receive a single alert per Microsoft update instead of one per tenant."
   }
 ]
