@@ -834,10 +834,10 @@
       },
       {
         "inputType": "switch",
-        "inputLabel": "One alert per issue across all tenants (recommended for All Tenants; off = one alert per tenant)",
+        "inputLabel": "One alert per issue across all tenants, listing every affected tenant (recommended for All Tenants; off = one alert per tenant)",
         "inputName": "ServiceHealthOnePerIssue"
       }
     ],
-    "description": "Monitors Microsoft 365 Service Health and alerts on unresolved incidents and advisories (for example Exchange Online degradation or a Teams service interruption). Filter by issue type, status and service. Microsoft-wide incidents are published to every tenant, so enable 'one alert per issue' when scheduling for All Tenants to receive a single alert per Microsoft update instead of one per tenant."
+    "description": "Monitors Microsoft 365 Service Health and alerts on unresolved incidents and advisories (for example Exchange Online degradation or a Teams service interruption). Filter by issue type, status and service. Microsoft-wide incidents are published to every tenant, so enable 'one alert per issue' when scheduling for All Tenants to receive a single alert per Microsoft update, with the list of affected tenants, instead of one alert per tenant."
   }
 ]
